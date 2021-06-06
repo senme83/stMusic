@@ -4,7 +4,12 @@
 1、入口页面：songLis.html
 2、模拟移动端显示：开发者模式 -> 切换设备工具栏（shift+ctrl+M）-> 75%
 ## 技术栈
-html css JavaScript ajax jQuery Vue
+- html
+- css
+- JavaScript
+- ajax
+- jQuery
+- Vue
 ## 基本功能
 ### 搜索歌曲
    输入关键字(歌名，歌手等)后按‘enter’键显示歌单列表，如果输入的内容为空，则搜索提示框内的内容。
