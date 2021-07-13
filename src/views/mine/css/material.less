@@ -1,0 +1,56 @@
+#material {
+  width: 100%;
+  height: 5rem;
+  margin: 1rem 0 1rem 0; // background-color: pink;
+  .marterialBox {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .userHeadImg {
+      flex-basis: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .userHeadImgBox {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: aqua;
+        img {
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+    .userInfo {
+      flex-basis: 9rem;
+      display: flex;
+      flex-direction: column;
+      .userName {
+        display: flex;
+        flex-direction: column-reverse;
+        flex-grow: 1;
+        font-size: 1.2rem;
+      }
+      .userId {
+        flex-grow: 1;
+        color: gray;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .marterialBtn {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 0.1rem;
+    span {
+      display: inline-block;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-top: 0.07rem solid black;
+      border-right: 0.07rem solid black;
+      transform: rotate(45deg);
+    }
+  }
+}

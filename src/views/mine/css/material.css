@@ -1,0 +1,56 @@
+#material {
+  width: 100%;
+  height: 5rem;
+  margin: 1rem 0 1rem 0;
+}
+#material .marterialBox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+#material .marterialBox .userHeadImg {
+  flex-basis: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#material .marterialBox .userHeadImg .userHeadImgBox {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: aqua;
+}
+#material .marterialBox .userHeadImg .userHeadImgBox img {
+  width: 100%;
+  border-radius: 50%;
+}
+#material .marterialBox .userInfo {
+  flex-basis: 9rem;
+  display: flex;
+  flex-direction: column;
+}
+#material .marterialBox .userInfo .userName {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  font-size: 1.2rem;
+}
+#material .marterialBox .userInfo .userId {
+  flex-grow: 1;
+  color: gray;
+  font-size: 0.8rem;
+}
+#material .marterialBtn {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 0.1rem;
+}
+#material .marterialBtn span {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 0.07rem solid black;
+  border-right: 0.07rem solid black;
+  transform: rotate(45deg);
+}

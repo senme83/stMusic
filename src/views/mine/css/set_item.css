@@ -1,0 +1,43 @@
+#setitem .setitemBox {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 2rem;
+}
+#setitem .setitemBox .setIcon {
+  flex-basis: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#setitem .setitemBox .setIcon img {
+  width: 70%;
+}
+#setitem .setitemBox .setContent {
+  flex-basis: 12.5rem;
+  display: flex;
+  align-items: center;
+}
+#setitem .setitemBox .setContent p {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+#setitem .setitemBox .setBtn {
+  flex-basis: 1rem;
+  display: flex;
+  align-items: center;
+}
+#setitem .setitemBox .setBtn span {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 0.08rem solid black;
+  border-right: 0.08rem solid black;
+  transform: rotate(45deg);
+}
+#setitem .line {
+  width: 87%;
+  margin: 0 auto;
+  height: 0.05rem;
+  background-color: gray;
+}
