@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const found_page = () => import('./views/found/found_page.vue')
 const serach_page = () => import('./views/serach/serach_page.vue')
 const mine_page = () => import('./views/mine/mine_page.vue')
+const comment_page = () =>import('./views/comment/cmment_page.vue')
 
 Vue.use(Router)
 
@@ -23,7 +24,11 @@ export default new Router({
     },
     {
       path:'/serach',
-      component:serach_page
+      component:serach_page,
+    },
+    {
+      path:'/comment',
+      component:comment_page
     },
     {
       path:'/mine',

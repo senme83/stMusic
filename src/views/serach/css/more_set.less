@@ -1,0 +1,46 @@
+@keyframes more_set_frames {
+  0%{
+   transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+ #more_set{
+   background-color: #fff;
+   width: 100%;
+   position: fixed;
+   bottom: 0;
+   border-top: 0.01rem solid #000;
+   border-radius: 1.5rem;
+   z-index: 1;
+   animation: more_set_frames 0.3s  linear 1;
+   .hideBtn{
+     margin: 0.3rem auto;
+     width: 0.7rem;
+     height: 0.7rem;
+     border-top: 0.1rem solid #000;
+     border-left: 0.1rem solid #000;
+     transform: rotate(-135deg);
+   }
+   .more_set_box{
+     .more_set_box_item{
+       height: 2rem;
+       display: flex;
+       margin: 0.3rem;
+       margin-left: 1rem;
+       align-items: center;
+       .msbx_icon{
+        img{
+          width: 1.185rem;
+        }
+       }
+       .msbx_content{
+        p{
+          font-size: .8rem;
+          margin-left: 0.5rem;
+        }
+       }
+     }
+   }
+ }

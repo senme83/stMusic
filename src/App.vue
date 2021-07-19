@@ -1,7 +1,7 @@
 <template>
   <html>
   <div id="app">
-    <keep-alive>
+    <keep-alive include="serach_page">
       <router-view></router-view>
     </keep-alive>
     <minAudio></minAudio>
@@ -14,12 +14,15 @@
 <script>
   import tabbar from './components/tabbar/tabbar.vue'
   import minAudio from './components/minAudio.vue'
+  import comment from './views/comment/cmment_page.vue'
+  
   import initFontSize from './assets/js/fontSize.js'
   export default {
     name: 'app',
     components: {
       tabbar,
-      minAudio
+      minAudio,
+      comment
     },
     created: function () {
       // 根据设备宽度动态计算HTML的字体大小

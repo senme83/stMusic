@@ -1,0 +1,33 @@
+#comment_head {
+  width: 15rem;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+#comment_head .head_img {
+  width: 3.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+#comment_head .head_img img {
+  border-radius: 0.3rem;
+  width: 3.5rem;
+}
+#comment_head .headmes {
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#comment_head .headmes .head_title {
+  width: 100%;
+}
+#comment_head .headmes .head_author {
+  font-size: 0.7rem;
+  width: 100%;
+  color: #455c71;
+}

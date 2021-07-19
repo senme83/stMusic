@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="serach">
+    <div class="serach" v-show='serachboxIsshow'>
       <div class="back">
         <span></span>
       </div>
@@ -21,6 +21,7 @@
       return {
         placeholder: "陈奕迅",
         serachContent: "",
+        serachboxIsshow: true
       };
     },
     methods: {
@@ -40,17 +41,35 @@
             // 搜索类型 
             type: 1,
             //单页数量
-            limit: 20,
+            limit: 30
           }
         }).then((res) => {
           bus.$emit('getSongs', res.data.data.songs)
         });
       },
     },
+    mounted() {
+      bus.$on('scrollup', mes => {
+        this.serachboxIsshow = true
+      })
+      bus.$on('scrolldown', mes => {
+        this.serachboxIsshow = false
+      })
+    }
   };
 </script>
 
 <style>
+  @keyframes search_frames {
+    0% {
+      transform: translatey(-100%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
   .serach {
     width: 14rem;
     height: 1.5rem;
@@ -58,6 +77,7 @@
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 0.8rem;
+    animation: search_frames 0.3s ease 1;
   }
 
   .serach .back {

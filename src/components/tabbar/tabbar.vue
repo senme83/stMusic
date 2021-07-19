@@ -32,6 +32,7 @@
 
 <style scoped>
   #tabbar {
+    z-index: 0;
     position: fixed;
     bottom: 0;
     right: 0;

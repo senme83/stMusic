@@ -1,5 +1,9 @@
 <template>
   <div>
+    <setitem>
+     <img slot="setIcon" src="../../assets/icon/set_icon/like.svg" alt />
+     <p slot="setContent">我喜欢的音乐</p>
+   </setitem>
    <setitem>
      <img slot="setIcon" src="../../assets/icon/set_icon/xiaoxi.svg" alt />
      <p slot="setContent">我的消息</p>

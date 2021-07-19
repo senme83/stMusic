@@ -1,7 +1,7 @@
 <template>
-  <div class="list">
+  <div class="list" @scroll='scrolling'>
     <ul>
-      <li v-for='song in songs' @click='playMusic(song.id)'>
+      <li v-for="(song,index) in songs" :key="index" @click="playMusic(song.id)" class="list-item">
         <div class="song">
           <div class="songBox">
             <div class="songName">
@@ -13,65 +13,105 @@
             </div>
           </div>
 
-          <div class="menu">
+          <div class="menu" @click.stop="menuClick(song.id)">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-        <!-- 分割线 -->
-        <div class="line"></div>
       </li>
-      <div class="space"></div>
     </ul>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
 </template>
 
 <script>
-  import bus from "../../bus"
-  import axios from "axios"
+  import bus from "../../bus";
+  import axios from "axios";
+  // 计算上划滚动次数
+  let countUp = 0
+
   export default {
-    name: 'songList',
+    name: "songList",
     data() {
       return {
-        songs: '',
-      }
+        songs: "",
+        // 滚动前，滚动条距文档顶部的距离
+        oldScrollTop: 0,
+      };
     },
     methods: {
       playMusic: function (musicId) {
-        // console.log('playMusic'+new Date());
-        axios.all([
-          //播放指定歌曲
-          axios({
-            method: 'get',
-            url: "https://v2.alapi.cn/api/music/url",
-            params: {
-              id: musicId,
-              format: 'json',
-              token: "36JffH6R63o8ZFTD",
-              contentType: 'jsonp'
-            }
-          }),
-        //点击一首歌获取该歌信息
-        axios({
-            method: 'get',
-            url: 'https://v2.alapi.cn/api/music/detail',
-            params: {
-              id: musicId,
-              token: "36JffH6R63o8ZFTD"
-            }
-          }),
-        ]).then((res) => {
-          bus.$emit('getSongMP3',res[0])
-          bus.$emit('getSongMes',res[1])
-        })
+        console.log("songId    " + musicId);
+        axios
+          .all([
+            //播放指定歌曲
+            axios({
+              method: "get",
+              url: "https://v2.alapi.cn/api/music/url",
+              params: {
+                id: musicId,
+                format: "json",
+                token: "36JffH6R63o8ZFTD",
+                contentType: "jsonp"
+              }
+            }),
+            //点击一首歌获取该歌信息
+            axios({
+              method: "get",
+              url: "https://v2.alapi.cn/api/music/detail",
+              params: {
+                id: musicId,
+                token: "36JffH6R63o8ZFTD"
+              }
+            })
+          ])
+          .then(res => {
+            bus.$emit("getSongMP3", res[0]);
+            bus.$emit("getSongMes", res[1]);
+          });
+      },
+      menuClick: function (musicId) {
+        this.$emit("emitMoresetShow", "true");
+        bus.$emit("emitMusicId", musicId);
+        console.log(musicId);
+        // bus.$emit("emitMoresetIsShow",this.moresetIsShow)
+      },
+      listswiperup: function () {
+        console.log('up！！！');
+      },
+      listswiperleft: function () {
+        console.log('left！！！');
+      },
+      scrolling: function () {
+        //根据两次滚动条距顶部距离的差值的正负判断滑动的方向
+        let scrollTop = document.querySelector('.list').scrollTop
+        let scrollStep = scrollTop - this.oldScrollTop;
+        console.log(scrollStep);
+        this.oldScrollTop = scrollTop;
+        if (scrollStep < 0) {
+          countUp ++
+          if (countUp > 10) {
+          //上滑且滚动次数超过10次显示搜索栏
+            bus.$emit('scrollup',true)
+          }
+        } else {
+          //下滑隐藏搜索栏
+          countUp = 0
+          bus.$emit('scrolldown',false)
+        }
       }
     },
+    computed: {
+    },
     mounted() {
-      bus.$on('getSongs', (any) => {
-        this.songs = any
-      })
-    }
+      bus.$on("getSongs", any => {
+        this.songs = any;
+      });
+    },
   };
 </script>
 
@@ -80,8 +120,8 @@
     margin: 0 auto;
     margin-top: 0.5rem;
     width: 14.5rem;
-    height: 100%;
-    background-color: white;
+    height: 28.4rem;
+    overflow-y: scroll;
   }
 
   .list ul {
@@ -89,7 +129,9 @@
     padding: 0;
     list-style: none;
   }
-
+  .list ul li{
+    background-color: #fff;
+  }
   .list .song {
     display: flex;
     width: 100%;

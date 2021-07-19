@@ -2,29 +2,33 @@
   <div>
     <swiper></swiper>
     <foundnav></foundnav>
-    <hr>
+    <hr />
     <foundlist></foundlist>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
+
   </div>
 </template>
 
 <script>
-import swiper from './swiper.vue'
-import foundnav from './found_nav.vue'
-import foundlist from './found_list.vue'
+import swiper from "./swiper.vue";
+import foundnav from "./found_nav.vue";
+import foundlist from "./found_list.vue";
+
 export default {
- name: 'found_page',
- components: {
-  swiper,
-  foundnav,
-  foundlist
- }
+  name: "found_page",
+  components: {
+    swiper,
+    foundnav,
+    foundlist
+  },
+  mounted(){
+    
+  }
 };
 </script>
 
 <style>
-  
 </style>
